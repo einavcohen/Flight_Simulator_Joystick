@@ -8,7 +8,7 @@ using System.Windows.Input;
 namespace FlightSimulator.Model
 {
     public class CommandHandler : ICommand
-    {//test
+    {
         private Action _action;
         public CommandHandler(Action action)
         {
