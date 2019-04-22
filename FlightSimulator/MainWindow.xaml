@@ -1,0 +1,13 @@
+﻿<Window x:Class="FlightSimulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlightSimulator"
+        xmlns:views="clr-namespace:FlightSimulator.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="741.173" Width="1203.524">
+    <Canvas Height="620" Margin="0,0,0.2,0" VerticalAlignment="Top">
+        <views:MainView></views:MainView>
+    </Canvas>
+</Window>
