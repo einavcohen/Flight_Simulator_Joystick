@@ -14,8 +14,6 @@ namespace FlightSimulator.Model
 {
     class InfoServer : BaseNotify
     {
-        TcpClient client;
-        TcpListener listener;
         private static InfoServer infoServer = null;
 
         private float lat;
@@ -42,10 +40,17 @@ namespace FlightSimulator.Model
             }
         }
 
-        int Port = ApplicationSettingsModel.Instance.FlightInfoPort;
-        string IP = ApplicationSettingsModel.Instance.FlightServerIP;
-        IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), infoServer.Port);
-        TcpListener listener = new TcpListener(ep);
+        public void Start(){
+
+            int Port = ApplicationSettingsModel.Instance.FlightInfoPort;
+            string IP = ApplicationSettingsModel.Instance.FlightServerIP;
+
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP),Port);
+            TcpListener listener = new TcpListener(ep);            Console.WriteLine("Waiting for client connections...");            listener.Start();            TcpClient client = listener.AcceptTcpClient();            Console.WriteLine("Client connected");
+
+
+            if(using (StreamReader reader = new StreamReader(client.GetStream(), Encoding.UTF8)));
+        }
 
 
 
@@ -60,10 +65,7 @@ namespace FlightSimulator.Model
 
 }
 }
-        listener.Start();
-        Console.WriteLine("Waiting for client connections...");
-        TcpClient client = listener.AcceptTcpClient();
-Console.WriteLine("Client connected");
+
         using (NetworkStream stream = client.GetStream())
         using (BinaryReader reader = new BinaryReader(stream))
         using (BinaryWriter writer = new BinaryWriter(stream))
