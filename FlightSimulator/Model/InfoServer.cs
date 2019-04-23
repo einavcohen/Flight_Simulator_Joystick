@@ -46,7 +46,7 @@ namespace FlightSimulator.Model
             int Port = ApplicationSettingsModel.Instance.FlightInfoPort;
             string IP = ApplicationSettingsModel.Instance.FlightServerIP;
 
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP),Port);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5400);
             listener = new TcpListener(ep);            Console.WriteLine("Waiting for client connections...");            listener.Start();            TcpClient client = listener.AcceptTcpClient();            Console.WriteLine("Client connected");
             Thread thread = new Thread(() => {
                 try{
