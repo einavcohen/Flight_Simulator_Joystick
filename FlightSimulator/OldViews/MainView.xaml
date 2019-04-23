@@ -28,17 +28,17 @@
                         
                         <Slider x:Name="rudder"  Margin="1.95,459,0,6.6" 
                         Width="400" Orientation="Horizontal" HorizontalAlignment="Left" 
-                        Value="0" Minimum="-1" Maximum="1" 
-                        SmallChange="1" LargeChange="2"
+                        Value="50" Minimum="0" Maximum="200" 
+                        SmallChange="1" LargeChange="10"
                         TickPlacement="BottomRight" TickFrequency="10" Grid.Column="1"/>
 
                         <TextBlock Text="{Binding Value, ElementName=throttle}" RenderTransformOrigin="0.5,0.5" Margin="86,29,434.2,463.6" Grid.ColumnSpan="2" FontSize="20" FontWeight="Bold">
                         </TextBlock>
                         <Slider x:Name="throttle"  Margin="-140,236,0,249.6" 
                         Width="400" Orientation="Horizontal" HorizontalAlignment="Left" 
-                        Value="0" Minimum="-1" Maximum="1" 
+                        Value="50" Minimum="0" Maximum="200" 
                         SmallChange="1" LargeChange="10"
-                        TickPlacement="BottomRight" TickFrequency="2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                        TickPlacement="BottomRight" TickFrequency="10" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
                             <Slider.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -86,13 +86,11 @@
                 </TabItem>
 
             </TabControl>
-            <Button Content="Connect" HorizontalAlignment="Left" Width="75" Height="19" Canvas.Left="204" Canvas.Top="118" Click="StartServer"/>
-            <Button Content="Settings" HorizontalAlignment="Left" Width="75" Height="19" VerticalAlignment="Bottom" Canvas.Left="326" Canvas.Top="118" Command ="{Binding ChangeSettings}"  Click="ChangeSet"/>
+            <Button Content="Connect" HorizontalAlignment="Left" Width="75" Height="19" Canvas.Left="204" Canvas.Top="118"/>
+            <Button Content="Settings" HorizontalAlignment="Left" Width="75" Height="19" VerticalAlignment="Bottom" Canvas.Left="326" Canvas.Top="118" Click="ChangeSettings"/>
             <TextBox HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="Flight Simulator" VerticalAlignment="Center" Width="323" Canvas.Left="457" Canvas.Top="37" FontSize="40" FontWeight="Bold"/>
 
 
         </Canvas>
     </Grid>
 </UserControl>
-
-    
