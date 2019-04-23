@@ -30,7 +30,10 @@ namespace FlightSimulator.Views
 
         private void StartServer(object sender, RoutedEventArgs e)
         {
-
+            CommmandServer cs = new CommmandServer();
+            InfoServer isr = new InfoServer();
+            cs.Start();
+            isr.Start();
         }
 
         private void Ok_Click(object sender, RoutedEventArgs e)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
 {
-    class CommandServer
+    public class CommandServer
     {
         private int port;
         private TcpClient client;

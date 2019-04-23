@@ -17,8 +17,9 @@ namespace FlightSimulator.Model
         private static InfoServer infoServer = null;
 
         private float lat;
-
         private float lon;
+        private TcpListener listener;
+        public Action<float,float> changedLonLat;
 
         public float Lat {
 
@@ -40,42 +41,35 @@ namespace FlightSimulator.Model
             }
         }
 
-        public void Start(){
-
+        public void Start()
+        {
             int Port = ApplicationSettingsModel.Instance.FlightInfoPort;
             string IP = ApplicationSettingsModel.Instance.FlightServerIP;
 
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP),Port);
-            TcpListener listener = new TcpListener(ep);            Console.WriteLine("Waiting for client connections...");            listener.Start();            TcpClient client = listener.AcceptTcpClient();            Console.WriteLine("Client connected");
+            listener = new TcpListener(ep);            Console.WriteLine("Waiting for client connections...");            listener.Start();            TcpClient client = listener.AcceptTcpClient();            Console.WriteLine("Client connected");
+            Thread thread = new Thread(() => {
+                try{
+                    StreamReader reader = new StreamReader(client.GetStream(), Encoding.UTF8);
+                    string line = "";
+                    while ((line = reader.ReadLine()) != null)
+                    {
+
+                            string[] valuesStr = line.Split(',');
+                            Lon = float.Parse(valuesStr[0]);
+                            Lat = float.Parse(valuesStr[1]);
+
+                            Console.WriteLine("lon:" + Lon +" ,lat:" + Lat);
+
+                            changedLonLat?.Invoke(Lon, Lat);
+                            reader.DiscardBufferedData();
+                    }                }                catch(Exception exception){                }            });            //start listenning thread            thread.Start();       }                                          
+       
+        public void Stop()
+        {
+            listener.Stop();
+        }
+    }}
 
 
-            if(using (StreamReader reader = new StreamReader(client.GetStream(), Encoding.UTF8)));
-        }
 
-
-
-
-
-
-
-
-
-
-    }
-
-}
-}
-
-        using (NetworkStream stream = client.GetStream())
-        using (BinaryReader reader = new BinaryReader(stream))
-        using (BinaryWriter writer = new BinaryWriter(stream))
-
-        Console.WriteLine("Waiting for a number");
-        int num = reader.ReadInt32();
-Console.WriteLine("Number accepted");
-        num *= 2;
-        writer.Write(num);
-        writer.Flush();
-
-    client.Close();
-    listener.Stop();
