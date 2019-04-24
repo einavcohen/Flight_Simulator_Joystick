@@ -68,7 +68,7 @@
     <Compile Include="Model\CommandHandler.cs" />
     <Compile Include="Model\CommandServer.cs" />
     <Compile Include="Model\EventArgs\VirtualJoystickEventArgs.cs" />
-    <Compile Include="Model\FlightPropModel.cs" />
+    <Compile Include="ViewModels\JoystickControl.cs" />
     <Compile Include="Model\InfoServer.cs" />
     <Compile Include="Model\Interface\ISettingsModel.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />

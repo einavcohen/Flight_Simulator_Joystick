@@ -10,7 +10,6 @@ namespace FlightSimulator.Model
 {
     public class FlightPropModel : BaseNotify
     {       
-      
         // the path to the componants in the xml
         private string AileronPath = "set controls/flight/aileron ";
         private double aileronVal = 0;
