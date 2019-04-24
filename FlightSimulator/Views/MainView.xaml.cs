@@ -33,7 +33,8 @@ namespace FlightSimulator.Views
             CommandServer cs = new CommandServer();
             InfoServer isr = new InfoServer();
             cs.Start();
-            isr.Start();
+            isr.Connect();
+            isr.HandleClient();
         }
 
         private void Ok_Click(object sender, RoutedEventArgs e)
