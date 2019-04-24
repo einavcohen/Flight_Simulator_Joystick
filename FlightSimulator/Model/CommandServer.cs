@@ -11,6 +11,7 @@ namespace FlightSimulator.Model
 {
     public class CommandServer
     {
+        private static CommandServer instance = null;
         private int port;
         private TcpClient client;
         bool isAlive = false;
@@ -32,6 +33,16 @@ namespace FlightSimulator.Model
             });
             task.Start();
             isAlive = true;
+        }
+
+        public static CommandServer Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new CommandServer();
+                return instance;
+            }
         }
 
         public void Send(string pp_name)
