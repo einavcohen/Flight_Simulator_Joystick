@@ -24,7 +24,7 @@ namespace FlightSimulator.Views
     {
         /// <summary>Current Aileron</summary>
         public static readonly DependencyProperty AileronProperty =
-            DependencyProperty.Register("Aileron", typeof(double), typeof(Joystick),null);
+            DependencyProperty.Register("Aileron", typeof(double), typeof(Joystick), null);
 
         /// <summary>Current Elevator</summary>
         public static readonly DependencyProperty ElevatorProperty =
@@ -146,8 +146,9 @@ namespace FlightSimulator.Views
             double distance = Math.Round(Math.Sqrt(deltaPos.X * deltaPos.X + deltaPos.Y * deltaPos.Y));
             if (distance >= canvasWidth / 2 || distance >= canvasHeight / 2)
                 return;
-            Aileron = -deltaPos.Y;
-            Elevator = deltaPos.X;
+            // switched locations and div by 124
+            Elevator = -deltaPos.Y / 124;
+            Aileron = deltaPos.X / 124;
 
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
