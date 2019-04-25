@@ -74,17 +74,7 @@
                 </TabItem>
                 <TabItem Header="Auto Pilot">
                     <Grid>
-                        <TextBox Margin="0,9,0.2,53.6" />
-
-                        <Button x:Name="DrawCircleButton" Height="30" Width="100"  
-                        Content="Ok"  
-                        Margin="121,478,0,0" VerticalAlignment="Top"  
-                        HorizontalAlignment="Left"/>
-                        <Button x:Name="DrawCircleButton_Copy" Height="30" Width="100"  
-                        Content="Clear"  
-                        Margin="328,478,0,0" VerticalAlignment="Top"  
-                        HorizontalAlignment="Left"/>
-
+                        <local:AutoPV></local:AutoPV>
                     </Grid>
 
                 </TabItem>
