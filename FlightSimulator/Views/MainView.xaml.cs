@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using FlightSimulator.Views;
-using FlightSimulator.ViewModels.Windows;
 using FlightSimulator.Model;
+using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Views
 {
@@ -25,7 +13,9 @@ namespace FlightSimulator.Views
     {
         public MainView()
         {
+            JoystickControl jc = new JoystickControl();
             InitializeComponent();
+            this.DataContext = jc;
         }
 
         private void StartServer(object sender, RoutedEventArgs e)
@@ -65,6 +55,7 @@ namespace FlightSimulator.Views
             settings.Show();
         }
         #endregion
+
         #endregion
     }
 }

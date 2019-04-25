@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="FlightSimulator.Views.AutoPV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightSimulator.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBox Margin="0,9,0.2,53.6" />
+
+        <Button x:Name="Ok_Button" Height="30" Width="100"  
+                        Content="Ok"  
+                        Margin="134,478,0,-58.4" VerticalAlignment="Top"  
+                        HorizontalAlignment="Left"/>
+        <Button x:Name="Clear_Button" Height="30" Width="100"  
+                        Content="Clear"  
+                        Margin="325,478,0,-58.4" VerticalAlignment="Top"  
+                        HorizontalAlignment="Left"/>
+    </Grid>
+</UserControl>
