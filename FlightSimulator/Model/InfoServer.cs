@@ -20,6 +20,7 @@ namespace FlightSimulator.Model
         private double lon;
         private double lat;
         private bool isAlive;
+<<<<<<< HEAD
 
         #region Singleton
         private static InfoServer m_Instance = null;
@@ -35,6 +36,8 @@ namespace FlightSimulator.Model
             }
         }
         #endregion
+=======
+>>>>>>> c63bbd764a4f8ff3adc95f4f18f3c737234ff3c9
 
         string[] ValuesFromSim
         {
@@ -52,6 +55,21 @@ namespace FlightSimulator.Model
         {
             get {return lat;}
             set {lat = value; NotifyPropertyChanged("Lat");}
+<<<<<<< HEAD
+=======
+        }
+
+        // static constructor in order to tell C# comp
+        // not to mark type as before init
+        public InfoServer() { }
+
+        static InfoServer(){ }
+
+
+        public static InfoServer Instance
+        {
+            get {return instance;}
+>>>>>>> c63bbd764a4f8ff3adc95f4f18f3c737234ff3c9
         }
 
         public void Connect()
