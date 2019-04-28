@@ -47,7 +47,7 @@ namespace FlightSimulator.Model
             task.Start();
             isAlive = true;
         }
-
+        
         public void Send(string pp_name)
         {
             if (client != null)
@@ -57,7 +57,7 @@ namespace FlightSimulator.Model
                 message.WriteLine(pp_name);
                 message.Flush();
             }
-
+            
         }
 
         public void Stop()
