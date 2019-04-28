@@ -26,7 +26,7 @@ namespace FlightSimulator.ViewModels
         }
         #endregion
 
-        private string AileronPath = "set controls/flight/aileron ";
+        private string AileronPath = "set /controls/flight/aileron ";
         private double aileronVal = 0;
 
         public double Aileron
@@ -39,13 +39,13 @@ namespace FlightSimulator.ViewModels
             {
                 aileronVal = Math.Round(value, 2);
                 NotifyPropertyChanged("Aileron");
-                string setAileron = AileronPath + aileronVal + " " + "\r\n";
+                string setAileron = AileronPath + aileronVal + "\r\n";
                 CommandServer.Instance.Send(setAileron);
             }
         }
 
         // the path to the componants in the xml
-        private string rudderPath = "set controls/flight/rudder ";
+        private string rudderPath = "set /controls/flight/rudder ";
         private double rudderVal = 0;
 
         public double Rudder
@@ -59,13 +59,13 @@ namespace FlightSimulator.ViewModels
             {
                 rudderVal = Math.Round(value, 2);
                 NotifyPropertyChanged("Rudder");
-                string setRudder = rudderPath + rudderVal + " " + "\r\n";
+                string setRudder = rudderPath + rudderVal + "\r\n";
                 CommandServer.Instance.Send(setRudder);
             }
         }
 
         // the path to the componants in the xml
-        private string elevatorPath = "set controls/flight/elevator ";
+        private string elevatorPath = "set /controls/flight/elevator ";
         private double elevatorVal = 0;
 
         public double Elevator
@@ -78,13 +78,13 @@ namespace FlightSimulator.ViewModels
             {
                 elevatorVal = Math.Round(value, 2);
                 NotifyPropertyChanged("Elevator");
-                string setElevator = elevatorPath + elevatorVal + " " + "\r\n";
+                string setElevator = elevatorPath + elevatorVal + "\r\n";
                 CommandServer.Instance.Send(setElevator);
             }
         }
 
         // the path to the componants in the xml
-        private string throttlePath = "set controls/engines/current-engine/throttle ";
+        private string throttlePath = "set /controls/engines/current-engine/throttle ";
         private double throttleVal = 0;
 
         public double Throttle
@@ -97,7 +97,7 @@ namespace FlightSimulator.ViewModels
             {
                 throttleVal = Math.Round(value, 2);
                 NotifyPropertyChanged("Throttle");
-                string setThrottle = throttlePath + throttleVal + " " + "\r\n";
+                string setThrottle = throttlePath + throttleVal + "\r\n";
                 CommandServer.Instance.Send(setThrottle);
             }
         }

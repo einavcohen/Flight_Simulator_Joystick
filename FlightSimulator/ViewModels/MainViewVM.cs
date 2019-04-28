@@ -26,14 +26,10 @@ namespace FlightSimulator.ViewModels
         #endregion
         public void startServerVM()
         {
-            cs = new CommandServer();
-            isr = new InfoServer();
-            cs.Start();
+            cs = CommandServer.Instance;
+            isr = InfoServer.Instance;
             isr.Connect();
-<<<<<<< HEAD
-            isr.HandleClient();
-=======
->>>>>>> 4bff969a3c86c2c5302e8b6dfd1dc4a8a98dd3e4
+            cs.Start();
             FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
             fbvm.initFlightBoard();
         }
