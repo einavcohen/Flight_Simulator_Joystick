@@ -6,14 +6,26 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FlightSimulator.Model
 {
     public class CommandServer
     {
-        private static CommandServer instance = null;
+        #region Singleton
+        private static CommandServer m_Instance = null;
+        public static CommandServer Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                    m_Instance = new CommandServer();
+                return m_Instance;
+            }
+        }
+        #endregion
         private int port;
-        private TcpClient client=null;
+        private TcpClient client = null;
         bool isAlive = false;
         public void Start()
         {
@@ -22,8 +34,7 @@ namespace FlightSimulator.Model
                 {
                     try
                     {
-                        TcpClient clientTest = new TcpClient(ApplicationSettingsModel.Instance.FlightServerIP,
-                            ApplicationSettingsModel.Instance.FlightCommandPort);
+                        TcpClient clientTest = new TcpClient(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightCommandPort);
                         client = clientTest;
                     }
                     catch (SocketException)
@@ -31,19 +42,10 @@ namespace FlightSimulator.Model
                         break;
                     }
                 }
+                MessageBox.Show("after commandServer");
             });
             task.Start();
             isAlive = true;
-        }
-
-        public static CommandServer Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new CommandServer();
-                return instance;
-            }
         }
 
         public void Send(string pp_name)
@@ -52,8 +54,10 @@ namespace FlightSimulator.Model
             {
                 NetworkStream stream = client.GetStream();
                 StreamWriter message = new StreamWriter(stream);
-                message.Write(pp_name);
+                message.WriteLine(pp_name);
+                message.Flush();
             }
+
         }
 
         public void Stop()
