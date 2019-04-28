@@ -13,7 +13,7 @@ namespace FlightSimulator.Model
     {
         private static CommandServer instance = null;
         private int port;
-        private TcpClient client;
+        private TcpClient client=null;
         bool isAlive = false;
         public void Start()
         {
@@ -22,7 +22,8 @@ namespace FlightSimulator.Model
                 {
                     try
                     {
-                        TcpClient clientTest = new TcpClient(ApplicationSettingsModel.Instance.FlightServerIP, ApplicationSettingsModel.Instance.FlightCommandPort);
+                        TcpClient clientTest = new TcpClient(ApplicationSettingsModel.Instance.FlightServerIP,
+                            ApplicationSettingsModel.Instance.FlightCommandPort);
                         client = clientTest;
                     }
                     catch (SocketException)

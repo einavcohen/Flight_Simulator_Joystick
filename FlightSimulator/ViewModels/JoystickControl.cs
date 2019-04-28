@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlightSimulator.Model.Interface;
-using FlightSimulator.ViewModels;
+using FlightSimulator.Model;
 
-namespace FlightSimulator.Model
+namespace FlightSimulator.ViewModels
 {
-    public class FlightPropModel : BaseNotify
+    public class JoystickControl : BaseNotify
     {       
         // the path to the componants in the xml
         private string AileronPath = "set controls/flight/aileron ";
@@ -18,11 +17,11 @@ namespace FlightSimulator.Model
         {
             get
             {
-                return Aileron;
+                return aileronVal;
             }
             set
             {
-                Aileron = Math.Round(value, 2);
+                aileronVal = Math.Round(value, 2);
                 NotifyPropertyChanged("Aileron");
                 string setAileron = AileronPath + aileronVal + " " + "\r\n";
                 CommandServer.Instance.Send(setAileron);
@@ -37,12 +36,12 @@ namespace FlightSimulator.Model
         {
             get
             {
-                return Rudder;
+                return rudderVal;
             }
 
             set
             {
-                Rudder = Math.Round(value, 2);
+                rudderVal = Math.Round(value, 2);
                 NotifyPropertyChanged("Rudder");
                 string setRudder = rudderPath + rudderVal + " " + "\r\n";
                 CommandServer.Instance.Send(setRudder);
