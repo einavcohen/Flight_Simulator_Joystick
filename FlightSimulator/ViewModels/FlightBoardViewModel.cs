@@ -52,11 +52,7 @@ namespace FlightSimulator.ViewModels
 
         public void PropertyChange(object sender, PropertyChangedEventArgs p)
         {
-<<<<<<< HEAD
-            NotifyPropertyChanged("VM_"+p.PropertyName);
-=======
             NotifyPropertyChanged("VM_" + p.PropertyName);
->>>>>>> 4bff969a3c86c2c5302e8b6dfd1dc4a8a98dd3e4
         }
     }
 }
