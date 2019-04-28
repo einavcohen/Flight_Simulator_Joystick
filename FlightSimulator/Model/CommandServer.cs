@@ -48,9 +48,12 @@ namespace FlightSimulator.Model
 
         public void Send(string pp_name)
         {
-            NetworkStream stream = client.GetStream();
-            StreamWriter message = new StreamWriter(stream);
-            message.Write(pp_name);
+            if (client != null)
+            {
+                NetworkStream stream = client.GetStream();
+                StreamWriter message = new StreamWriter(stream);
+                message.Write(pp_name);
+            }
         }
 
         public void Stop()

@@ -58,10 +58,10 @@ namespace FlightSimulator.Model
                 ApplicationSettingsModel.Instance.FlightInfoPort);
             listener = new TcpListener(ep);
             listener.Start();
-            HandleClient(listener);
+            HandleClient();
         }
 
-        public void HandleClient(TcpListener listener)
+        public void HandleClient()
         {
             TcpClient client = listener.AcceptTcpClient();
             Thread thread = new Thread(() => ReadFromClient(client,listener));
