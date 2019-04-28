@@ -11,26 +11,48 @@ namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
     {
+        private InfoServer isr;
+        #region Singleton
+        private static FlightBoardViewModel m_Instance = null;
+        public static FlightBoardViewModel Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                {
+                    m_Instance = new FlightBoardViewModel();
+                }
+                return m_Instance;
+            }
+        }
+        #endregion
 
         public FlightBoardViewModel()
         {
-            InfoServer.Instance.PropertyChanged += PropertyChange;
-        }
-        public double Lon
-        {
-            get { return InfoServer.Instance.Lon; }
-            set { InfoServer.Instance.Lon = value; }
         }
 
-        public double Lat
+        public void initFlightBoard()
         {
-            get { return InfoServer.Instance.Lat; }
-            set { InfoServer.Instance.Lat = value; }
+            MainViewVM mv = MainViewVM.Instance;
+            this.isr = mv.isr;
+            isr.PropertyChanged += PropertyChange;
+        }
+
+        public double VM_Lon
+        {
+            get { return isr.Lon; }
+            set { isr.Lon = value; }
+        }
+
+        public double VM_Lat
+        {
+            get { return isr.Lat; }
+            set { isr.Lat = value; }
         }
 
         public void PropertyChange(object sender, PropertyChangedEventArgs p)
         {
-            NotifyPropertyChanged(p.PropertyName);
+            NotifyPropertyChanged("VM_" + p.PropertyName);
         }
     }
 }

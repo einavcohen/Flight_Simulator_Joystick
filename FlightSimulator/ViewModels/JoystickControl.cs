@@ -3,13 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlightSimulator.Model.Interface;
 using FlightSimulator.Model;
 
 namespace FlightSimulator.ViewModels
 {
     public class JoystickControl : BaseNotify
-    {       
+    {
         // the path to the componants in the xml
+        #region Singleton
+        private static JoystickControl m_Instance = null;
+        public static JoystickControl Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                {
+                    m_Instance = new JoystickControl();
+                }
+                return m_Instance;
+            }
+        }
+        #endregion
+
         private string AileronPath = "set controls/flight/aileron ";
         private double aileronVal = 0;
 
@@ -17,7 +33,7 @@ namespace FlightSimulator.ViewModels
         {
             get
             {
-                return aileronVal;
+                return Aileron;
             }
             set
             {
@@ -36,7 +52,7 @@ namespace FlightSimulator.ViewModels
         {
             get
             {
-                return rudderVal;
+                return Rudder;
             }
 
             set
