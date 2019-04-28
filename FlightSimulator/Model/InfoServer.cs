@@ -69,7 +69,7 @@ namespace FlightSimulator.Model
             TcpClient client = listener.AcceptTcpClient();
             MessageBox.Show("after connect");
             Thread thread = new Thread(() => ReadFromClient(client));
-            thread.Start();
+           // thread.Start();
             //ReadFromClient(client);
         }
 
