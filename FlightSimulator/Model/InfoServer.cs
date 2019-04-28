@@ -39,6 +39,21 @@ namespace FlightSimulator.Model
 =======
 >>>>>>> c63bbd764a4f8ff3adc95f4f18f3c737234ff3c9
 
+        #region Singleton
+        private static InfoServer m_Instance = null;
+        public static InfoServer Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                {
+                    m_Instance = new InfoServer();
+                }
+                return m_Instance;
+            }
+        }
+        #endregion
+
         string[] ValuesFromSim
         {
             get { return this.valuesFromSim; }
@@ -47,12 +62,13 @@ namespace FlightSimulator.Model
 
         public double Lon
         {
-            get {return lon;}
-            set {lon = value; NotifyPropertyChanged("Lon");}
+            get { return lon; }
+            set { lon = value; NotifyPropertyChanged("Lon"); }
         }
 
         public double Lat
         {
+<<<<<<< HEAD
             get {return lat;}
             set {lat = value; NotifyPropertyChanged("Lat");}
 <<<<<<< HEAD
@@ -70,6 +86,10 @@ namespace FlightSimulator.Model
         {
             get {return instance;}
 >>>>>>> c63bbd764a4f8ff3adc95f4f18f3c737234ff3c9
+=======
+            get { return lat; }
+            set { lat = value; NotifyPropertyChanged("Lat"); }
+>>>>>>> 4bff969a3c86c2c5302e8b6dfd1dc4a8a98dd3e4
         }
 
         public void Connect()
@@ -86,15 +106,21 @@ namespace FlightSimulator.Model
         {
             TcpClient client = listener.AcceptTcpClient();
 <<<<<<< HEAD
+<<<<<<< HEAD
             MessageBox.Show("after connect");
             Thread thread = new Thread(() => ReadFromClient(client));
 =======
             Thread thread = new Thread(() => ReadFromClient(client,listener));
 >>>>>>> c63bbd764a4f8ff3adc95f4f18f3c737234ff3c9
+=======
+            MessageBox.Show("after connect");
+            Thread thread = new Thread(() => ReadFromClient(client));
+>>>>>>> 4bff969a3c86c2c5302e8b6dfd1dc4a8a98dd3e4
             thread.Start();
+            //ReadFromClient(client);
         }
 
-        void ReadFromClient(TcpClient client, TcpListener listener)
+        void ReadFromClient(TcpClient client)
         {
             Byte[] bytes;
             while (isAlive)
@@ -122,6 +148,7 @@ namespace FlightSimulator.Model
                 Lat = Convert.ToDouble(splitStr[1]);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             catch (Exception exception) { }
 
             // MessageBox.Show(valuesFromSim[0]);
@@ -130,6 +157,11 @@ namespace FlightSimulator.Model
             
            // MessageBox.Show(valuesFromSim[0]);
 >>>>>>> c63bbd764a4f8ff3adc95f4f18f3c737234ff3c9
+=======
+            catch (Exception exception) { }
+
+            // MessageBox.Show(valuesFromSim[0]);
+>>>>>>> 4bff969a3c86c2c5302e8b6dfd1dc4a8a98dd3e4
         }
 
         public void Stop()

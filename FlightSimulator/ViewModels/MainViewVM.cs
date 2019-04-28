@@ -30,7 +30,10 @@ namespace FlightSimulator.ViewModels
             isr = new InfoServer();
             cs.Start();
             isr.Connect();
+<<<<<<< HEAD
             isr.HandleClient();
+=======
+>>>>>>> 4bff969a3c86c2c5302e8b6dfd1dc4a8a98dd3e4
             FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
             fbvm.initFlightBoard();
         }
