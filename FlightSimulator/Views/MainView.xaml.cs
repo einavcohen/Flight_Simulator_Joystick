@@ -20,16 +20,8 @@ namespace FlightSimulator.Views
 
         private void StartServer(object sender, RoutedEventArgs e)
         {
-            CommandServer cs = new CommandServer();
-            InfoServer isr = new InfoServer();
-            cs.Start();
-            isr.Connect();
-            isr.HandleClient();
-        }
-
-        private void Ok_Click(object sender, RoutedEventArgs e)
-        {
-
+            MainViewVM mv = MainViewVM.Instance;
+            mv.startServerVM();
         }
 
         private void ChangeSet(object sender, RoutedEventArgs e)
