@@ -42,7 +42,6 @@ namespace FlightSimulator.Model
                         break;
                     }
                 }
-                MessageBox.Show("after commandServer");
             });
             task.Start();
             isAlive = true;

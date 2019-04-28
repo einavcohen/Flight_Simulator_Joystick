@@ -33,6 +33,11 @@ namespace FlightSimulator.ViewModels
             FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
             fbvm.initFlightBoard();
         }
+        public void stopServerVM()
+        {
+            cs.Stop();
+            isr.Stop();
+        }
     }
 
 }
