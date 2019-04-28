@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FlightSimulator.Model.Interface;
 using FlightSimulator.Model;
+using System.Windows.Input;
 
 namespace FlightSimulator.ViewModels
 {
@@ -101,5 +102,24 @@ namespace FlightSimulator.ViewModels
                 CommandServer.Instance.Send(setThrottle);
             }
         }
+        #region Commands
+        #region ConnectCommand
+        private ICommand _connectCommand;
+        public ICommand ConnectCommand
+        {
+            get
+            {
+                return _connectCommand ?? (_connectCommand = new CommandHandler(() => ConnectClick()));
+            }
+        }
+
+        private void ConnectClick()
+        {
+            MainViewVM mv = MainViewVM.Instance;
+            mv.startServerVM();
+        }
+        #endregion
+
+        #endregion
     }
 }

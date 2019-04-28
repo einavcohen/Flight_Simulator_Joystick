@@ -80,9 +80,9 @@
                 </TabItem>
 
             </TabControl>
-            <Button Content="Connect" HorizontalAlignment="Left" Width="75" Height="19" Canvas.Left="204" Canvas.Top="118" Click="StartServer"/>
-            <Button Content="Settings" HorizontalAlignment="Left" Width="75" Height="19" VerticalAlignment="Bottom" Canvas.Left="326" Canvas.Top="118" Command ="{Binding ChangeSettings}"  Click="ChangeSet"/>
-            <TextBox HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="Flight Simulator" VerticalAlignment="Center" Width="323" Canvas.Left="457" Canvas.Top="37" FontSize="40" FontWeight="Bold"/>
+            <Button Content="Connect" HorizontalAlignment="Left" Width="75" Height="19" Canvas.Left="204" Canvas.Top="118" Command ="{Binding ConnectCommand}" />
+            <Button Content="Settings" HorizontalAlignment="Left" Width="75" Height="19" VerticalAlignment="Bottom" Canvas.Left="326" Canvas.Top="118"  Click="ChangeSet"/>
+            <TextBox HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Text="Flight Simulator" VerticalAlignment="Center" Width="323" Canvas.Left="445" Canvas.Top="69" FontSize="40" FontWeight="Bold"/>
 
 
         </Canvas>

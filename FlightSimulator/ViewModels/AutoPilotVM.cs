@@ -7,30 +7,48 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.ComponentModel;
 
 
 namespace FlightSimulator.ViewModels
 {
-    class AutoPilotVM :BaseNotify
+    class AutoPilotVM : BaseNotify
     {
-        public AutoPilotModel autoPilotModel {
+        public AutoPilotModel apModel {get; set;}
 
-            get;
+        private Brush bGround;
+        public Brush Bground
+        {
+            get { return bGround; }
+            set { this.bGround = value; NotifyPropertyChanged("Bground"); }
+        }
 
-            set;
+        private String apString;
+        public String APstring
+        {
+            get
+            {
+                return this.apString;
+            }
+            set
+            {
+                this.apString = value;
+                apModel.CommandString = apString;
+                if (value.CompareTo("") != 0)
+                    this.Bground = Brushes.LightPink;
+                NotifyPropertyChanged(APstring);
+            }
         }
 
         //init color and str
         public AutoPilotVM()
         {
-            autoPilotModel = new AutoPilotModel();
-            autoPilotModel.CommandString = "";
-            autoPilotModel.BackgroundColor = Brushes.White;
+            Bground = Brushes.White;
+            this.apModel = new AutoPilotModel();
 
         }
 
         private ICommand _okCommand;
-
         public ICommand OKCommand
         {
             get
@@ -44,8 +62,8 @@ namespace FlightSimulator.ViewModels
         {
             new Thread(() =>
             {
-               autoPilotModel.BackgroundColor = Brushes.White;
-                string[] commandsStr = autoPilotModel.CommandString.Split('\n');
+               Bground = Brushes.White;
+                string[] commandsStr = apModel.CommandString.Split('\n');
                 foreach (string cmd in commandsStr)
                 {
                     string command = cmd;
@@ -69,8 +87,7 @@ namespace FlightSimulator.ViewModels
 
         private void OnClearClick()
         {
-           autoPilotModel.CommandString = "";
-           autoPilotModel.BackgroundColor = Brushes.White;
+           APstring = "";
         }
     }
 }

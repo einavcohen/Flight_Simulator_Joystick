@@ -30,26 +30,7 @@ namespace FlightSimulator.Views
             SettingsWindow settings = new SettingsWindow();
             settings.Show();
         }
-
-        #region Commands
-        #region ChangeSettings
-        private ICommand _changeSettings;
-        public ICommand ChangeSettings
-        {
-            get
-            {
-                return _changeSettings ?? (_changeSettings = new CommandHandler(() => SettingClick()));
-            }
-        }
-
-        private void SettingClick()
-        {
-            SettingsWindow settings = new SettingsWindow();
-            settings.Show();
-        }
-        #endregion
-
-        #endregion
+        
     }
 }
 

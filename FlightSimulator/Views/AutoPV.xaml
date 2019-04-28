@@ -7,21 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBox x:Name="TextBox"
-            Background="{Binding autoPilotModel.BackgroundColor}"
-            Text="{Binding AutoPilotModel.CommandString, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-            AcceptsReturn="True"
-            TextWrapping="Wrap"     
-            Margin="0,9,0.2,53.6" />
+        <TextBox Margin="0,9,0.2,53.6" Text="{Binding APstring, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="{Binding Bground}"/>
 
-        <Button x:Name="Ok_Button" Height="30" Width="100"  
-                        Content="Ok"
+        <Button x:Name="Ok_Button" Height="30" Width="100"
                         Command="{Binding OKCommand}"
+                        Content="Ok"  
                         Margin="134,478,0,-58.4" VerticalAlignment="Top"  
                         HorizontalAlignment="Left"/>
         <Button x:Name="Clear_Button" Height="30" Width="100"  
-                        Content="Clear" 
                         Command="{Binding ClearCommand}"
+                        Content="Clear"  
                         Margin="325,478,0,-58.4" VerticalAlignment="Top"  
                         HorizontalAlignment="Left"/>
     </Grid>
