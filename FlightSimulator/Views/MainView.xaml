@@ -36,7 +36,7 @@
                         SmallChange="1" LargeChange="2"
                         TickPlacement="BottomRight" TickFrequency="10" Grid.Column="2" Grid.ColumnSpan="3"/>
 
-                        <TextBlock Text="{Binding Value, ElementName=throttle}" RenderTransformOrigin="0.5,0.5" Margin="0.4,29,434.2,463.6" Grid.ColumnSpan="3" FontSize="20" FontWeight="Bold" Grid.Column="2">
+                        <TextBlock Text="{Binding Throttle}" RenderTransformOrigin="0.5,0.5" Margin="0.4,29,434.2,463.6" Grid.ColumnSpan="3" FontSize="20" FontWeight="Bold" Grid.Column="2">
                         </TextBlock>
                         <Slider x:Name="throttle"  Margin="-140,236,0,249.6" 
                         Width="400" Orientation="Horizontal" HorizontalAlignment="Left" 
@@ -54,9 +54,9 @@
                         </Slider>
 
 
-                        <TextBlock Text="{Binding Value, ElementName=rudder}" RenderTransformOrigin="0.5,0.5" Margin="382.747,473,16.2,9.6" FontSize="20" FontWeight="Bold" Grid.Column="4"/>
-                        <TextBlock Text="{Binding ElementName=controler, Path=Aileron}" RenderTransformOrigin="0.5,0.5" Margin="364.747,25,16.2,463.6" FontSize="20" FontWeight="Bold" Grid.Column="4"/>
-                        <TextBlock Text="{Binding ElementName=controler, Path=Elevator}" RenderTransformOrigin="0.5,0.5" Margin="381.747,65,16.2,425.6" FontSize="20" FontWeight="Bold" Grid.Column="4">
+                        <TextBlock Text="{Binding Rudder}" RenderTransformOrigin="0.5,0.5" Margin="382.747,473,16.2,9.6" FontSize="20" FontWeight="Bold" Grid.Column="4"/>
+                        <TextBlock Text="{Binding Aileron}" RenderTransformOrigin="0.5,0.5" Margin="364.747,25,16.2,463.6" FontSize="20" FontWeight="Bold" Grid.Column="4"/>
+                        <TextBlock Text="{Binding Elevator}" RenderTransformOrigin="0.5,0.5" Margin="381.747,65,16.2,425.6" FontSize="20" FontWeight="Bold" Grid.Column="4">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>

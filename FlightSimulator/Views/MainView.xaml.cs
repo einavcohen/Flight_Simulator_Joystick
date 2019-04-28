@@ -1,5 +1,4 @@
-﻿using System.Net.Sockets;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using FlightSimulator.Model;
@@ -12,11 +11,12 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class MainView : UserControl
     {
+        private JoystickControl jc;
         public MainView()
         {
-            JoystickControl jc = new JoystickControl();
             InitializeComponent();
-            this.DataContext = jc;
+            jc = JoystickControl.Instance;
+            DataContext = jc;
         }
 
         private void StartServer(object sender, RoutedEventArgs e)

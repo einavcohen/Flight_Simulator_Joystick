@@ -33,7 +33,7 @@ namespace FlightSimulator.ViewModels
         {
             get
             {
-                return Aileron;
+                return aileronVal;
             }
             set
             {
@@ -52,7 +52,7 @@ namespace FlightSimulator.ViewModels
         {
             get
             {
-                return Rudder;
+                return rudderVal;
             }
 
             set
