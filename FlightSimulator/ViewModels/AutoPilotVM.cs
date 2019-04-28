@@ -13,47 +13,20 @@ namespace FlightSimulator.ViewModels
 {
     class AutoPilotVM :BaseNotify
     {
+        public AutoPilotModel autoPilotModel {
 
-         //init color and str
+            get;
+
+            set;
+        }
+
+        //init color and str
         public AutoPilotVM()
         {
-            commandString = "";
-            BackgroundColor = Brushes.White;
+            autoPilotModel = new AutoPilotModel();
+            autoPilotModel.CommandString = "";
+            autoPilotModel.BackgroundColor = Brushes.White;
 
-        }
-
-        private Brush back;
-
-        public Brush BackgroundColor
-        {
-            get
-            {
-                return back;
-            }
-            set
-            {
-                back = value;
-                NotifyPropertyChanged("BackgroundColor");
-            }
-        }
-
-        private string commandString;
-
-        public string CommandString
-        {
-            get
-            {
-                return commandString;
-            }
-            set
-            {
-                commandString = value;
-                if (!string.IsNullOrEmpty(commandString))
-                {
-                    BackgroundColor = Brushes.LightPink;
-                }
-                NotifyPropertyChanged("CommandString");
-            }
         }
 
         private ICommand _okCommand;
@@ -71,8 +44,8 @@ namespace FlightSimulator.ViewModels
         {
             new Thread(() =>
             {
-                BackgroundColor = Brushes.White;
-                string[] commandsStr = commandString.Split('\n');
+               autoPilotModel.BackgroundColor = Brushes.White;
+                string[] commandsStr = autoPilotModel.CommandString.Split('\n');
                 foreach (string cmd in commandsStr)
                 {
                     string command = cmd;
@@ -96,8 +69,8 @@ namespace FlightSimulator.ViewModels
 
         private void OnClearClick()
         {
-            commandString = "";
-            BackgroundColor = Brushes.White;
+           autoPilotModel.CommandString = "";
+           autoPilotModel.BackgroundColor = Brushes.White;
         }
     }
 }
