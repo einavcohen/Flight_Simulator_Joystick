@@ -24,8 +24,7 @@ namespace FlightSimulator.Views
         public AutoPV()
         {
             InitializeComponent();
-            DataContext = new AutoPilotVM();
-
+            this.DataContext = new AutoPilotVM();
         }
     }
 }

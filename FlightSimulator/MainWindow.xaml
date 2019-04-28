@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:views="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="741.173" Width="1203.524">
-    <Canvas Height="620" Margin="0,0,0.2,0" VerticalAlignment="Top">
+        Title="MainWindow" Height="656.773" Width="1198.724">
+    <Canvas Height="685" Margin="0,-65,-0.2,0" VerticalAlignment="Top">
         <views:MainView></views:MainView>
     </Canvas>
 </Window>
