@@ -1,2 +1,5 @@
 # Flight Simulator Joystick
-A Java Joystick For FlightGear.
+
+Android application that enables control over a flight via joystick.
+
+Using WPF framework & MVVM architecture. 
