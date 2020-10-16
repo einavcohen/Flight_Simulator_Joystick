@@ -1,2 +1,2 @@
-# FlightGear_Joystick
+# Flight Simulator Joystick
 A Java Joystick For FlightGear.
